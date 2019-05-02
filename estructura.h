@@ -84,7 +84,7 @@ typedef struct{
 } regIva;
 
 typedef struct{
-  double codigoPago;//primarykey
+  int codigoPago;//primarykey
   char descrpcionPago[80];
 } regPagos;
 

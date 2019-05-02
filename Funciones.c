@@ -349,3 +349,45 @@ void menuVisualizarRegs(baseDeDatos bd){
     printf("no se encontró ningún registro\n");
 }
   
+
+FILE AbrirFichero(char nombreFichero[]){
+    FILE *fichero = NULL;
+    fichero=fopen(nombreFichero,"a+b");
+    
+    if(ferror(fichero)){
+        perror("algo ha salido mal\n");
+        //return NULL;
+    }
+    return *fichero;
+    
+}
+void CerrarFichero( FILE *fichero){
+  
+    fclose(fichero);
+}
+int ayadirFormaPago(FILE *fichero, char nomFichero[]){
+    
+    if(strcmp(nomFichero,"fpagos")==0){
+       regPagos registro;
+       registro.codigoPago=generarCodigo(fichero,sizeof(registro));
+       printf("codigo pago %d ", registro.codigoPago);
+       printf("descripcion pago");
+       scanf("%s",&registro.descrpcionPago);
+       
+       
+    }
+    return 0;
+}
+//codigo formas de pago autonumerico
+int generarCodigo(FILE *fichero, int tamayoRegistro ){//int tamañoRegistro viene dado por: sizeof(registro)
+    regPagos registro;
+    fseek(fichero,0,SEEK_END);
+    if((ftell(fichero)/tamayoRegistro)==0){
+        return 1;
+    }else{
+        fseek(fichero,-tamayoRegistro,SEEK_END);
+        registro.codigoPago = fread(&registro,tamayoRegistro,1,fichero);//me pide igualar int
+        //registro=fread(&registro,tamayoRegistro,1,fichero);
+        return registro.codigoPago + 1;
+    }
+}
