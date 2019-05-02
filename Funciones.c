@@ -326,7 +326,7 @@ void menuVisualizarRegs(baseDeDatos bd){
     return;
   }
 
-  printf("conjunto de caracteres a buscar: ");
+  printf("conjunto de caracteres a buscar,'*' para buscar todos: ");
   gets(str);
   // str igual a * visualiza todos
   do

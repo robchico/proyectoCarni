@@ -44,6 +44,57 @@ typedef struct
   int regsEliminados;  // 1 cuando se haya borrado algún registro
 } baseDeDatos;
 
+typedef struct
+{
+  double codigoCli;  //primarykey
+  char dniCli[15];
+  char nombreCli[80];
+  char direccionCli[100];
+  char poblacionCli[50];
+  char provinciaCli[30];
+  char cpCli[6];
+} regClientes;
+
+typedef struct
+{
+  double codigoPro;  //primarykey
+  char dniPro[15];
+  char nombrePro[80];
+  char direccionPro[100];
+  char poblacionPro[50];
+  char provinciaPro[30];
+  char cpPro[6];
+} regProveedores;
+
+typedef struct
+{
+  char referenciaArt[20];//primarykey
+  char descrpcionArt[80];
+  double existencias;
+  double precio;
+  double stockMinimo;
+  double codigoSec; //FORGEIN KEY tabla secciones
+} regArticulos;
+
+typedef struct
+{
+  double codigoSec;//primarykey
+  char descrpcionSec[80];
+} regSecciones;
+
+typedef struct
+{
+  double codigoIva;//primarykey
+  int descrpcionIva;
+} regIva;
+
+typedef struct
+{
+  double codigoPago;//primarykey
+  char descrpcionPago[80];
+} regPagos;
+
+
 void IniciarRegistro(registro *reg);
 int Existe(char *nombreFichero);
 int EscribirRegistro( int i, registro reg, baseDeDatos bd );

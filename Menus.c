@@ -10,7 +10,7 @@ char * gets(char *);
 
 #include "estructura.h"
 
-//
+//menu principal
 int menu1(baseDeDatos bd){
   int op;
   printf("\n\n");

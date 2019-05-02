@@ -13,9 +13,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "estructura.h"
 
-//#include "Funciones.c"
+#include "estructura.h"
 
 
 /*
@@ -51,5 +50,6 @@ int main(int argc, char** argv) {
     }
   }while(opcion != 6);
     return 0;
+    
 }
 
