@@ -13,12 +13,44 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "estructura.h"
+
+//#include "Funciones.c"
+
 
 /*
  * 
  */
 int main(int argc, char** argv) {
+ int opcion = 0;
+  baseDeDatos articulos;
+  IniciarBaseDeDatos(&articulos);
 
-    return (EXIT_SUCCESS);
+  do
+  {
+    opcion = menu(articulos);
+    switch (opcion)
+    {
+      case 1: // abrir fichero
+        menuAbrirBaseDeDatos(&articulos);
+        break;
+      case 2: // añadir registro al final del fichero
+        menuAnyadirReg(&articulos);
+        break;
+      case 3: // modificar registro
+        menuModificarReg(articulos);
+        break;
+      case 4: // eliminar registro
+        menuEliminarReg(&articulos);
+        break;
+      case 5: // visualizar registros
+        menuVisualizarRegs(articulos);
+        break;
+      case 6: // salir
+        CerrarBaseDeDatos(&articulos);
+    }
+  }
+  while(opcion != 6);
+    return 0;
 }
 
