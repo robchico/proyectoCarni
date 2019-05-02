@@ -28,7 +28,7 @@ int main(int argc, char** argv) {
 
   do
   {
-    opcion = menu(articulos);
+    opcion = menu1(articulos);
     switch (opcion)
     {
       case 1: // abrir fichero
@@ -49,8 +49,7 @@ int main(int argc, char** argv) {
       case 6: // salir
         CerrarBaseDeDatos(&articulos);
     }
-  }
-  while(opcion != 6);
+  }while(opcion != 6);
     return 0;
 }
 

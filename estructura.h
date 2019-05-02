@@ -59,4 +59,4 @@ void menuAnyadirReg(baseDeDatos *bd);
 void menuModificarReg(baseDeDatos bd);
 int menuEliminarReg(baseDeDatos *bd);
 void menuVisualizarRegs(baseDeDatos bd);
-int menu(baseDeDatos bd);
+int menu1(baseDeDatos bd);
