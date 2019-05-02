@@ -44,8 +44,7 @@ typedef struct
   int regsEliminados;  // 1 cuando se haya borrado algún registro
 } baseDeDatos;
 
-typedef struct
-{
+typedef struct{
   double codigoCli;  //primarykey
   char dniCli[15];
   char nombreCli[80];
@@ -55,8 +54,7 @@ typedef struct
   char cpCli[6];
 } regClientes;
 
-typedef struct
-{
+typedef struct{
   double codigoPro;  //primarykey
   char dniPro[15];
   char nombrePro[80];
@@ -66,8 +64,7 @@ typedef struct
   char cpPro[6];
 } regProveedores;
 
-typedef struct
-{
+typedef struct{
   char referenciaArt[20];//primarykey
   char descrpcionArt[80];
   double existencias;
@@ -76,23 +73,21 @@ typedef struct
   double codigoSec; //FORGEIN KEY tabla secciones
 } regArticulos;
 
-typedef struct
-{
+typedef struct{
   double codigoSec;//primarykey
   char descrpcionSec[80];
 } regSecciones;
 
-typedef struct
-{
+typedef struct{
   double codigoIva;//primarykey
-  int descrpcionIva;
+  short descrpcionIva;
 } regIva;
 
-typedef struct
-{
+typedef struct{
   double codigoPago;//primarykey
   char descrpcionPago[80];
 } regPagos;
+
 
 
 void IniciarRegistro(registro *reg);
@@ -111,3 +106,4 @@ void menuModificarReg(baseDeDatos bd);
 int menuEliminarReg(baseDeDatos *bd);
 void menuVisualizarRegs(baseDeDatos bd);
 int menu1(baseDeDatos bd);
+int menu2(baseDeDatos bd,char cadena[10]);
